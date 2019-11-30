@@ -1,4 +1,7 @@
 # node-final-project
+Final Project for DGM 3760: Web Languages II. Utilizes Node, Express, Test-driven development and more.
+Mock Website.
+
 ## Update your Project 9 project with:
 
 - [ ] Test-driven development

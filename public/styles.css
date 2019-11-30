@@ -1,26 +1,60 @@
-h1, h2, h3, h4, h5 {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 
-h1 {
-    font-size: 48px;
+    background: rgb(235,207,67);
+    background: linear-gradient(145deg, rgba(235,207,67,1) 5%, rgba(10,134,114,1) 90%) no-repeat fixed;
 }
-
+form input {
+    display: block;
+    margin-top: 20px;
+}
 html {
-    background-color: #333;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
-
-form input[type="submit"] {
-    padding: 10px 30px;
-    color: white;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+h1, h2, h3, h4, p {
+   color: #333;
+   font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+input[type="text"] {
+    border: none;
+    border-bottom: 4px solid #333;
     background-color: transparent;
-    border: 2px solid white;
-    transition: all 0.2s ease-in-out;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    transition: 0.3s;
 }
-
-form input[type="submit"]:hover, form input[type="submit"]:target, form input[type="submit"]:focus {
-    background-color: black;
+input[type="text"]:hover, input[type="text"]:focus, input[type="text"]:target {
+    border-color: #fff;
+    transition: 0.15s;
+    background-color: rgba(255,255,255,.4);
+}
+input[type="submit"] {
+    display: block;
+    padding: 15px 45px;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    
+    border: 2px solid #099981;
+    border-radius: 2px;
+    background-color: #099981;
     color: white;
+    transition: 0.3s;
+}
+input[type="submit"]:hover {
+    background-color: #18c1a5;
+    border-color: #18c1a5;
+    transition: 0.3s;
     cursor: pointer;
 }

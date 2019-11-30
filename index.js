@@ -1,29 +1,46 @@
 const express = require('express');
+const formidable = require('formidable');
+const fs = require('fs');
 const path = require('path');
+const imagePath = path.join(__dirname, 'uploads/test.png');
+
 const app = express();
 const port = 8080;
 
-app.use(function(req, res, next) {
-    console.log(`${req.method} ${req.url}`);
-    next();
-});
-
 app.use(express.static('public'));
 
-app.get('/', function(req, res) { 
-    res.send('Hello World!'); 
+app.post('/upload', (req, res) => {
+    const form = new formidable.IncomingForm();
+    form.parse(req, (error, fields, files) => {
+        if (error) return console.error(error);
+
+        fs.unlinkSync(imagePath);
+        fs.renameSync(files.upload.path, imagePath);
+
+        const data = `${ Object.keys(fields).map(key => `${ key }: ${ fields[key] }`)}`;
+
+        res.send(`<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <title>Form Response</title>
+            <link rel="stylesheet" href="styles.css" />
+        </head>
+        <body class="home">
+           <div class="container">
+             <h1>Your Form Input Data</h1>
+             <h2>Your Image</h2>
+             <img src="/show" />
+             <h2>Received Data</h2>
+            <p>${ data }</p>
+            </div>
+        </body>
+        </html>`);
+    });
 });
 
-app.route('/endpoint') 
-    .get(function(req, res, next) {
-        res.sendFile(path.join(__dirname, 'public\hello.html'));
-        next();
-})
-    .post(function(req, res) {
-        console.log('I did get a POST request');
-        res.send('Hello from post');
-    });
+app.get('/show', (req, res) => {
+    console.log('Request handler "show" was called.');
+    res.sendFile(imagePath);
+});
 
-app.listen(port, function() { 
-    console.log(`Example app listening on port ${port}!`);
-}); // back tick allows us to utilize js variables
+app.listen(port, () => console.log(`Server Started on ${port}`));
