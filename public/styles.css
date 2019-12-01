@@ -1,31 +1,132 @@
-body {
-    max-width: 1200px;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display:900&display=swap');
+
+/*--------GLOBAL STYLES --------*/
+body div.section {
+    max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
-
-    background: rgb(235,207,67);
-    background: linear-gradient(145deg, rgba(235,207,67,1) 5%, rgba(10,134,114,1) 90%) no-repeat fixed;
 }
+
+.bg-grey-light {
+    background-color: #F5F5F5;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    color: #000;
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+}
+
+p {
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.block {
+    width: 100%;
+    min-width: 320px;
+    text-align: center;
+}
+
+/*--------END GLOBAL STYLES --------*/
+/*---------NAV STYLES----------*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid #099981;
+}
+
+nav img {
+    height: 50px;
+    width: auto;
+    margin: 0 auto;
+}
+
+/*-----------END NAV STYLES-----------*/
+/*----------HEADER STYLES-------------*/
+body div.header {
+    height: 500px;
+    background-image: url('/images/bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .5);
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body div.header p {
+    padding-top: 0;
+    margin-top: -20px;
+}
+
+body div.header .container {
+    border: 6px double white;
+    padding: 30px 60px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+div.bg-grey-light .section h2,
+.bg-grey-light .section p {
+    text-align: center;
+}
+
+/*------------END HEADER STYLES-------------*/
+/*--------- FOOTER STYLES-----------*/
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 40px;
+}
+/*---------END FOOTER STYLES--------*/
+/*----------ICON STYLES------------*/
+i.material-icons {
+    font-size: 48px;
+    text-align: center;
+    color: #099981;
+}
+
+/*---------- END ICON STYLES------------*/
+/*-----------FORM STYLES-----------*/
 form input {
     display: block;
     margin-top: 20px;
 }
-html {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-h1, h2, h3, h4, p {
-   color: #333;
-   font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-}
+
 input[type="text"] {
     border: none;
     border-bottom: 4px solid #333;
@@ -35,26 +136,61 @@ input[type="text"] {
     font-size: 18px;
     transition: 0.3s;
 }
-input[type="text"]:hover, input[type="text"]:focus, input[type="text"]:target {
-    border-color: #fff;
+
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="text"]:target {
+    border-color: #099981;
     transition: 0.15s;
-    background-color: rgba(255,255,255,.4);
+    background-color: rgba(255, 255, 255, .4);
 }
+
 input[type="submit"] {
     display: block;
     padding: 15px 45px;
     margin-top: 20px;
     font-family: 'Montserrat', sans-serif;
-    
+
     border: 2px solid #099981;
     border-radius: 2px;
     background-color: #099981;
     color: white;
     transition: 0.3s;
 }
+
 input[type="submit"]:hover {
     background-color: #18c1a5;
     border-color: #18c1a5;
     transition: 0.3s;
     cursor: pointer;
 }
+
+/*----------END FORM STYLES-------------*/
+/*--------RESPONSE STYLES-------------*/
+.section.response {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/*--------END RESPONSE STYLES----------*/
+/*------------------END MOBILE STYLES------------------*/
+
+/*----------------- TABLET AND UP DEVICES ----------------*/
+@media only screen and (min-width: 768px) {
+    .bg-grey-light .section .flex {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    nav img {
+        margin: 0;
+    }
+}
+
+/*----------------- LANDSCAPE TABLET AND UP DEVICES ----------------*/
+@media only screen and (min-width: 960px) {}
+
+/*----------------- DESKTOP AND UP DEVICES ----------------*/
+@media only screen and (min-width: 1200px) {}
