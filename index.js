@@ -2,7 +2,7 @@ const express = require('express');
 const formidable = require('formidable');
 const fs = require('fs');
 const path = require('path');
-const imagePath = path.join(__dirname, '/uploads/test.png');
+const imagePath = path.join(__dirname, 'uploads/test.png');
 
 const app = express();
 const port = 8080;
@@ -14,10 +14,10 @@ app.post('/upload', (req, res) => {
     form.parse(req, (error, fields, files) => {
         if (error) return console.error(error);
 
-        fs.unlinkSync(imagePath);
-        fs.renameSync(files.upload.path, imagePath);
+        // fs.unlinkSync(imagePath);
+        // fs.renameSync(files.upload.path, imagePath);
 
-        const data = `${ Object.keys(fields).map(key => `${ key }: ${ fields[key] }`)}`;
+        const data = `${ Object.keys(fields).map(key => `${ fields[key] }`)}`;
 
         res.send(`<!DOCTYPE html>
         <html lang="en">
@@ -31,8 +31,8 @@ app.post('/upload', (req, res) => {
             <link rel="stylesheet" type="text/css" href="styles.css">
             <title>Final Project | Web Languages II</title>
             <nav>
-                <img src="images/logo.jpg" alt="logo" />
-                <a href="#contact">Contact</a>
+                <a href="index.html" class="logo-link"><img src="images/logo.jpg" alt="logo" /></a>
+                <a href="index.html">Home</a>
             </nav>
         </head>
         
@@ -45,9 +45,8 @@ app.post('/upload', (req, res) => {
             </div>
             <div class="section response">
                 <h2>Your Response</h2>
-                <h3>Your Name:</h3>
-                <p>${data}</p>
-
+                <h3>Your Name: <span>${data}</span></h3>
+                
                 <h3>Your Image:</h3>
                 <img src="/show" alt="Uploaded image" />               
             </div>
@@ -60,7 +59,7 @@ app.post('/upload', (req, res) => {
     });
 });
 
-app.get('/show', (res) => {
+app.get('/show', (req, res) => {
     console.log('Request handler "show" was called.');
     res.sendFile(imagePath);
 });

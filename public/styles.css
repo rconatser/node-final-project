@@ -68,6 +68,10 @@ nav img {
     margin: 0 auto;
 }
 
+nav a.logo-link {
+    border-bottom: none;
+}
+
 /*-----------END NAV STYLES-----------*/
 /*----------HEADER STYLES-------------*/
 body div.header {
@@ -167,11 +171,13 @@ input[type="submit"]:hover {
 
 /*----------END FORM STYLES-------------*/
 /*--------RESPONSE STYLES-------------*/
-.section.response {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.section.response h3 span {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.section.response h2 {
+    text-align: center;
 }
 /*--------END RESPONSE STYLES----------*/
 /*------------------END MOBILE STYLES------------------*/
