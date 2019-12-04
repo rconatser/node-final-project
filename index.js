@@ -1,6 +1,5 @@
 const express = require('express');
 const formidable = require('formidable');
-const fs = require('fs');
 const path = require('path');
 const imagePath = path.join(__dirname, 'uploads/test.png');
 
@@ -13,9 +12,6 @@ app.post('/upload', (req, res) => {
     const form = new formidable.IncomingForm();
     form.parse(req, (error, fields, files) => {
         if (error) return console.error(error);
-
-        // fs.unlinkSync(imagePath);
-        // fs.renameSync(files.upload.path, imagePath);
 
         const data = `${ Object.keys(fields).map(key => `${ fields[key] }`)}`;
 
