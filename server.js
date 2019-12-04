@@ -4,7 +4,7 @@ const path = require('path');
 const imagePath = path.join(__dirname, 'uploads/test.png');
 
 const app = express();
-const port = 8080;
+// const port = 8080;
 
 app.use(express.static('public'));
 
@@ -60,4 +60,5 @@ app.get('/show', (req, res) => {
     res.sendFile(imagePath);
 });
 
-app.listen(port, () => console.log(`Server Started on ${port}`));
+// app.listen(port, () => console.log(`Server Started on Heroku`));
+app.listen(process.env.PORT || 5000);
