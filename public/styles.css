@@ -179,6 +179,13 @@ input[type="submit"]:hover {
 .section.response h2 {
     text-align: center;
 }
+
+.section.response img {
+    width: 80%;
+    margin: 0 10%;
+    max-width: 650px;
+    height: auto;
+}
 /*--------END RESPONSE STYLES----------*/
 /*------------------END MOBILE STYLES------------------*/
 
