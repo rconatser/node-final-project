@@ -200,10 +200,22 @@ input[type="submit"]:hover {
     nav img {
         margin: 0;
     }
+
+    .section.response img {
+        width: 80%;
+        margin: 0 10%;
+        max-width: 650px;
+        height: auto;
+    }
 }
 
 /*----------------- LANDSCAPE TABLET AND UP DEVICES ----------------*/
-@media only screen and (min-width: 960px) {}
+@media only screen and (min-width: 960px) {
+    .section.response img {
+        margin-left: 0;
+    }
+
+}
 
 /*----------------- DESKTOP AND UP DEVICES ----------------*/
 @media only screen and (min-width: 1200px) {}
